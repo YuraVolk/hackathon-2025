@@ -9,6 +9,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { colors } from "@mui/material";
 
 interface EnterProps {
   num?: number;
@@ -26,11 +27,12 @@ const Enter: React.FC<EnterProps> = (props) => {
     password: false,
   });
   const enter = async (email: string, password: string) => {
+    console.log(isNaN(Number(password)));
     const newErrors = { ...errors };
     if (email == "") {
       newErrors.email = true;
     }
-    if (isNaN(Number(password))) {
+    if (isNaN(Number(password)) || password == "") {
       newErrors.password = true;
     }
     if (!newErrors.email && !newErrors.password) {
@@ -84,7 +86,7 @@ const Enter: React.FC<EnterProps> = (props) => {
         <FormControl sx={{ m: 1, width: "100%" }} variant="filled">
           <InputLabel htmlFor="filled-adornment-password">
             {errors.password
-              ? "Иедентификатор состоит из цифр!"
+              ? "Идентификатор состоит из цифр!"
               : "Уникальный идентификатор"}
           </InputLabel>
           <FilledInput

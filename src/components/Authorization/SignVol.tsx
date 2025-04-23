@@ -162,7 +162,7 @@ const Sign: React.FC<SignProps> = (props) => {
             slotProps={{
               openPickerIcon: { fontSize: "large" },
               openPickerButton: {
-                color: errors.birth_date ? "error" : "undefind",
+                color: errors.birth_date ? "error" : "undefined",
               },
               textField: {
                 variant: "filled",
